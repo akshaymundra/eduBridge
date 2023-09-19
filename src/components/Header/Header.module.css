@@ -1,0 +1,20 @@
+.header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    height: 55px;
+    padding: 1rem 3rem;
+    background-color: var(--primary);
+}
+
+.header>a {
+    text-decoration: none;
+    color: var(--light);
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    font-weight: 700;
+}

@@ -1,0 +1,25 @@
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 3rem;
+}
+
+.section_heading {
+    position: relative;
+}
+
+.section_heading::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    width: 20%;
+    height: 2px;
+    background-color: var(--primary);
+}
+
+@media screen and (max-width: 767px) {
+    .section {
+        padding: 2rem 1rem;
+    }
+}

@@ -1,0 +1,9 @@
+.heading {
+    color: var(--primary);
+}
+
+@media screen and (max-width: 767px) {
+    .heading {
+        font-size: 1.5rem;
+    }
+}

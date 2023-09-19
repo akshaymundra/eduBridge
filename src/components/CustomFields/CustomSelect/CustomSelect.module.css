@@ -1,0 +1,58 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.label {
+    color: var(--primary-text);
+    text-transform: capitalize;
+    font-size: 13.418px;
+    font-weight: 600;
+}
+
+
+.input :global .MuiSelect-outlined {
+    padding: 4px 32px 4px 12px !important;
+    font-size: 0.8rem !important;
+}
+
+.input :global .MuiOutlinedInput-notchedOutline {
+    border: none !important;
+}
+
+.outlined :global .MuiSelect-outlined {
+    background: transparent !important;
+    border: 1px solid var(--primary) !important;
+    color: #738BA9 !important;
+}
+
+.filled :global .MuiSelect-icon {
+    fill: var(--light) !important;
+}
+
+.outlined :global .MuiSelect-icon {
+    fill: #738BA9 !important;
+}
+
+.filled :global .MuiSelect-outlined {
+    background: var(--primary) !important;
+    color: white !important;
+    border: 1px solid var(--primary) !important;
+}
+
+.rounded :global .MuiSelect-outlined {
+    border-radius: 11px !important;
+}
+
+@media screen and (max-width:1100px) {
+    .label {
+        font-size: 11px;
+    }
+}
+
+@media screen and (max-width:700px) {
+    .label {
+        font-size: 9px;
+    }
+}

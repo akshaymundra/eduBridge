@@ -1,0 +1,213 @@
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.7rem;
+    position: relative;
+    overflow: hidden;
+    padding: 0.5rem 1rem;
+    outline: 0;
+    border: 0;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* size  */
+.default_size {
+    font-size: 1rem;
+}
+
+.small_size {
+    font-size: 0.8rem;
+}
+
+.extra_small_size {
+    font-size: 0.7rem;
+}
+
+.large_size {
+    font-size: 1.2rem;
+}
+
+/* variant  */
+.contained {
+    background-color: currentColor;
+}
+
+.outlined {
+    background-color: transparent;
+    border: 1px solid currentColor;
+    color: currentColor;
+}
+
+.text {
+    border: none;
+    background-color: transparent;
+    color: currentColor;
+    padding: 3px 5px;
+}
+
+/* color + variant  */
+.default_contained {
+    color: white !important;
+    background-color: black !important;
+}
+
+.primary_contained {
+    color: white !important;
+    background-color: var(--primary) !important;
+}
+
+.success_contained {
+    color: white !important;
+    background-color: var(--success) !important;
+}
+
+.danger_contained {
+    color: white !important;
+    background-color: var(--danger) !important;
+}
+
+.primary_grad_contained {
+    color: white !important;
+    background: linear-gradient(90deg, #0149B3 0%, #3A89FF 100%);
+}
+
+.accent_contained {
+    color: white !important;
+    background-color: var(--accent) !important;
+}
+
+.secondary_contained {
+    color: white !important;
+    background-color: var(--secondary) !important;
+}
+
+
+.default {
+    color: var(--secondary-text);
+}
+
+.primary {
+    color: var(--primary);
+}
+
+.success {
+    color: var(--success);
+}
+
+.danger {
+    color: var(--danger);
+}
+
+.accent {
+    color: var(--accent);
+}
+
+.secondary {
+    color: var(--secondary);
+}
+
+
+.neutral_primary {
+    color: var(--primary);
+    background-color: #0047B11A;
+    transition: all 0.2s ease-in;
+}
+
+.neutral_primary:hover {
+    color: var(--light);
+    background-color: var(--primary);
+}
+
+.neutral_primary:hover :global .MuiSvgIcon-root {
+    color: var(--light) !important;
+}
+
+
+.group_btn {
+    border: 1px solid var(--secondary-text);
+    color: var(--primary);
+    background-color: transparent;
+    border-radius: 0;
+    border-right: none;
+}
+
+.group_btn:last-child {
+    border-right: 1px solid var(--secondary-text);
+}
+
+.group_btn_active {
+    border: 1px solid var(--primary);
+    border-right: 1px solid var(--primary) !important;
+}
+
+.underline {
+    background-color: transparent;
+    padding: 0 1px;
+    border-radius: 0px;
+}
+
+.underline::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    height: 1.5px;
+    width: 100%;
+    background-color: currentColor;
+    transform: scale(0);
+    transform-origin: center;
+    transition: transform 0.25s linear;
+}
+
+.underline:hover::before {
+    transform: scale(1);
+}
+
+
+.rounded {
+    border-radius: 8px;
+}
+
+
+/* more properties here  */
+
+
+
+
+.ripple {
+    position: absolute !important;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple 600ms linear;
+    /* background-color: rgba(0, 0, 0, 0.3); */
+    /* background-color: rgba(255, 255, 255, 0.3); */
+    z-index: 1;
+}
+
+.contained .ripple {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.outlined .ripple,
+.group_btn .ripple {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+
+
+@media screen and (max-width: 767px) {
+
+    .large_size,
+    .default_size {
+        font-size: 0.8rem;
+    }
+}
