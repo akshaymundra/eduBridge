@@ -9,6 +9,7 @@ import CustomButton from '@/components/CustomButton/CustomButton';
 import Heading from '@/components/Texts/Heading/Heading';
 import Uploader from '@/components/NewFileUploader/Uploader';
 import addData from '@/firebase/firestore/addData';
+import uploadFile from '@/firebase/storage/uploadFile';
 
 const page = () => {
 
@@ -32,11 +33,11 @@ const page = () => {
         }
         setDepartmentList(result)
     }
-
     useEffect(() => {
         init()
     }, [])
 
+    // prepare the sem list array for the total sem taken from department 
     useEffect(() => {
         if (data.departmentId) {
             const n = departmentList?.filter(item => item.id === data.departmentId)[0]?.total_sem;
@@ -55,6 +56,7 @@ const page = () => {
     }
 
 
+    // submit form to database 
     const handleSubmit = async () => {
         if (
             !data.departmentId ||
@@ -68,12 +70,32 @@ const page = () => {
             setError("All fields are required!")
             return
         }
-        const { result, error } = await addData(collections.RESOURCES, data);
+
+        const file = data?.document[0]
+        const fileName = data?.document[0].name;
+
+        const { error: uploadError, url } = await uploadFile(file, fileName)
+
+        if (uploadError) {
+            console.log(uploadError)
+            return;
+        }
+
+        const { result, error } = await addData(collections.RESOURCES, {
+            departmentId: data.departmentId,
+            title: data.title,
+            description: data.description,
+            subject: data.subject,
+            semester: data.semester,
+            document: url
+        });
+
         if (error) {
             console.log(error)
             setError(error)
             return;
         }
+
         setData({
             departmentId: '',
             title: '',
@@ -82,8 +104,8 @@ const page = () => {
             semester: '',
             document: []
         })
-        alert("resource uploaded successfully")
 
+        console.log("data updated successfully")
     }
 
     return (
@@ -152,6 +174,8 @@ const page = () => {
                     <div>
                         <Uploader name={'document'} data={data} setData={setData} />
                     </div>
+
+                    {error && <span style={{ color: 'red', fontSize: '12px' }}>{error}</span>}
 
                     <div>
                         <CustomButton

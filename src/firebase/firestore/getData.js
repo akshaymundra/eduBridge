@@ -1,8 +1,9 @@
 import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
-import app from "../config";
+import { db } from "../config";
+// import app from "../config";
 
 
-const db = getFirestore(app)
+// const db = getFirestore(app)
 
 export default async function getDocument(collectionName, attributeName, id = null) {
     let result;

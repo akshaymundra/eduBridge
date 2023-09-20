@@ -1,8 +1,8 @@
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
-import app from '../config'
+import { auth } from '../config'
 import SignOut from './Signout';
 
-const auth = getAuth(app);
+
 
 export default function isAuth() {
     let uid, error;

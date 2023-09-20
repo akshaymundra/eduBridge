@@ -15,12 +15,17 @@ const ResourceCard = ({ data }) => {
                 <p>Sem: {data.semester}</p>
 
 
-                <CustomButton
-                    variant="contained"
-                    color="primary"
+                <a
+                    href={data?.document}
+                    target="_blank"
                 >
-                    Download
-                </CustomButton>
+                    <CustomButton
+                        variant="contained"
+                        color="primary"
+                    >
+                        Download
+                    </CustomButton>
+                </a>
             </div>
         </div>
     )
