@@ -7,13 +7,15 @@ import getDocument from '@/firebase/firestore/getData'
 import { collections } from '@/utils/constant'
 import { useParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import Style from './page.module.css';
 
 const page = () => {
 
     const [data, setData] = useState(null);
+    const [filteredData, setFilteredData] = useState(null);
     const [departmentData, setDepartmentData] = useState(null)
     const [search, setSearch] = useState('');
-    const [sem, setSem] = useState(1);
+    const [sem, setSem] = useState('');
 
     const { department } = useParams();
 
@@ -32,7 +34,25 @@ const page = () => {
         init();
     }, [])
 
-    console.log(departmentData)
+    useEffect(() => {
+        if (search) {
+            const newData = data?.filter(item => (
+                item.title.toLowerCase().includes(search.trim().toLowerCase()) ||
+                item.subject.toLowerCase().includes(search.trim().toLowerCase())
+            ))
+            setFilteredData(newData)
+        } else {
+            setFilteredData(null)
+        }
+
+        if (sem) {
+            const newData = data?.filter(item => (
+                item.semester == sem
+            ))
+            setFilteredData(newData)
+        }
+    }, [sem, search])
+
 
     return (
         <Layout>
@@ -44,9 +64,30 @@ const page = () => {
 
                 <SearchQuery sem={sem} setSem={setSem} search={search} setSearch={setSearch} />
 
-                {data?.map((item, index) => (
-                    <ResourceCard key={index} data={item} />
-                ))}
+                <div className={Style.card_container}>
+                    {!search && !sem && data?.map((item, index) => (
+                        <ResourceCard key={index} data={item} />
+                    ))}
+                    {!search && !sem && data?.map((item, index) => (
+                        <ResourceCard key={index} data={item} />
+                    ))}
+                </div>
+
+                {(search || sem) &&
+                    <>
+                        {filteredData ?
+                            <div className={Style.card_container}>
+                                {filteredData?.map((item, index) => (
+                                    <ResourceCard key={index} data={item} />
+                                ))}
+                            </div>
+                            :
+                            <>
+                                Empty
+                            </>
+                        }
+                    </>
+                }
 
             </div>
 

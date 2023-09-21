@@ -3,11 +3,11 @@ import { motion } from 'framer-motion';
 
 const routeVariant = {
     hidden: {
-        y: 50,
+        scale: 0.98,
         opacity: 0,
     },
     final: {
-        y: 0,
+        scale: 1,
         opacity: 1,
     },
 }

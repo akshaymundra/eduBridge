@@ -3,6 +3,7 @@ import Style from "./SearchQuery.module.css";
 import CustomSelect from "../CustomFields/CustomSelect/CustomSelect";
 import { useState } from "react";
 import { MenuItem, TextField } from "@mui/material";
+import CustomButton from "../CustomButton/CustomButton";
 
 const dummyList = [
     { name: '1', value: '1' },
@@ -21,6 +22,11 @@ const SearchQuery = ({
     setSem
 }) => {
 
+    const handleClear = () => {
+        setSearch('')
+        setSem('')
+    }
+
     return (
         <div className={Style.main}>
             <TextField
@@ -38,12 +44,21 @@ const SearchQuery = ({
                 onChange={(e) => setSem(e.target.value)}
                 value={sem}
                 size="small"
+                style={{ minWidth: '100px' }}
             >
                 {semList?.map(val => (
                     <MenuItem key={val} value={val}>{val}</MenuItem>
                 ))}
 
             </TextField>
+
+            <CustomButton
+                color="primary"
+                variant="underline"
+                onClick={handleClear}
+            >
+                Clear Filter
+            </CustomButton>
 
         </div>
     )

@@ -1,0 +1,14 @@
+.footer {
+    height: 40px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 1rem 3rem;
+    background-color: var(--primary);
+}
+
+.footer>p {
+    font-size: small;
+    color: white;
+
+}

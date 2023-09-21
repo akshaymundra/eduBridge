@@ -4,6 +4,7 @@ import app from '@/firebase/config'
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
+import Layout from '../Layout/Layout'
 
 const auth = getAuth(app)
 
@@ -37,7 +38,11 @@ const ProtectedLayout = ({ children }) => {
 
     return (
         <>
-            {userId && children}
+            {userId &&
+                <Layout>
+                    {children}
+                </Layout>
+            }
         </>
     )
 }

@@ -42,4 +42,8 @@
     .hero_img_container {
         grid-row: 1;
     }
+
+    .main {
+        padding: 1rem;
+    }
 }
