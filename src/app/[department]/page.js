@@ -68,9 +68,6 @@ const page = () => {
                     {!search && !sem && data?.map((item, index) => (
                         <ResourceCard key={index} data={item} />
                     ))}
-                    {!search && !sem && data?.map((item, index) => (
-                        <ResourceCard key={index} data={item} />
-                    ))}
                 </div>
 
                 {(search || sem) &&
