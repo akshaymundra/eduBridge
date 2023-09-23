@@ -4,6 +4,8 @@
     --text-base: #333333;
     --secondary: #009966;
     --accent: #FFD700;
+    --table-first: 0.4fr;
+    --table-last: 0.6fr;
 }
 
 * {

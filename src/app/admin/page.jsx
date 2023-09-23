@@ -32,10 +32,19 @@ const page = () => {
                 <div className={Style.actions}>
                     <div
                         onClick={() => router.push('admin/add_department')}
-                    >Add Department</div>
+                    >
+                        Add Department
+                    </div>
                     <div
                         onClick={() => router.push('admin/add_resource')}
-                    >Add Resource</div>
+                    >
+                        Add Resource
+                    </div>
+                    <div
+                        onClick={() => router.push('admin/view_request')}
+                    >
+                        View Request
+                    </div>
                 </div>
 
             </div>
