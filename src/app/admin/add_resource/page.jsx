@@ -105,7 +105,7 @@ const page = () => {
             document: []
         })
 
-        console.log("data updated successfully")
+        console.log("Resource Added successfully")
     }
 
     return (

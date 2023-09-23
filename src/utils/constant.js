@@ -1,4 +1,5 @@
 export const collections = {
     RESOURCES: 'resources',
-    DEPARTMENTS: 'departments'
+    DEPARTMENTS: 'departments',
+    REQUESTS: 'requests'
 }
