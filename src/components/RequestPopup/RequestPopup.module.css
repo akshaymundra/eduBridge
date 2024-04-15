@@ -7,6 +7,7 @@
     border-radius: 10px;
     width: 100%;
     max-width: 500px;
+    position: relative;
 }
 
 .main {
@@ -19,6 +20,14 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
+}
+
+.close_button {
+    position: absolute !important;
+    top: 0.5rem !important;
+    right: 0.5rem !important;
+    padding: 0.2rem !important;
+    border: none !important;
 }
 
 @media screen and (max-width: 767px) {

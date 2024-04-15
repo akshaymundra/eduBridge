@@ -35,22 +35,22 @@ const page = () => {
     }, [])
 
     useEffect(() => {
+        let newData = data;
+
         if (search) {
-            const newData = data?.filter(item => (
+            newData = newData?.filter(item => (
                 item.title.toLowerCase().includes(search.trim().toLowerCase()) ||
                 item.subject.toLowerCase().includes(search.trim().toLowerCase())
             ))
-            setFilteredData(newData)
-        } else {
-            setFilteredData(null)
         }
 
         if (sem) {
-            const newData = data?.filter(item => (
+            newData = newData?.filter(item => (
                 item.semester == sem
             ))
-            setFilteredData(newData)
         }
+
+        setFilteredData(newData)
     }, [sem, search])
 
 

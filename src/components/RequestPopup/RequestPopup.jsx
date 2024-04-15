@@ -6,6 +6,7 @@ import Heading from "../Texts/Heading/Heading";
 import CustomButton from "../CustomButton/CustomButton";
 import getDocument from "@/firebase/firestore/getData";
 import addData from "@/firebase/firestore/addData";
+import { Close } from "@mui/icons-material";
 
 const RequestPopup = ({
     onClose
@@ -163,6 +164,16 @@ const RequestPopup = ({
                     </CustomButton>
                 </div>
             </div>
+
+            <CustomButton
+                variant='outlined'
+                color='primary'
+                onClick={onClose}
+                className={Style.close_button}
+            >
+                <Close />
+            </CustomButton>
+
         </div>
     )
 }
